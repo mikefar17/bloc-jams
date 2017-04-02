@@ -1,8 +1,8 @@
-body.landing{
+body.landing {
     background-color: rgb(58,23,63);
 }
 
-.hero-content{
+.hero-content {
     position:relative;
     min-height:600px;
     background-image: url(../assets/images/bloc_jams_background.jpg);
@@ -11,7 +11,7 @@ body.landing{
     background-size: cover;
 }
 
-.hero-content .hero-title{
+.hero-content .hero-title {
     position: absolute;
     top:40%;
     -webkit-transform:translaterY(-50%);
@@ -26,11 +26,11 @@ body.landing{
     text-shadow: 1px 1px 0px rgb(58,23,63);
 }
 
-.selling-points{
+.selling-points {
     position: relative;
 }
 
-.point{
+.point {
     position: relative;
     padding: 2rem;
     text-align: center;
@@ -46,7 +46,7 @@ body.landing{
     transition-delay: 0.2s;
 }
 
-.point .point-title{
+.point .point-title {
     font-size: 1.25rem;
 }
 
