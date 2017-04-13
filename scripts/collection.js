@@ -20,12 +20,11 @@ window.onload = function() {
     var collectionContainer = document.getElementsByClassName('album-covers')[0];
     // #2
     // assign an empty string to collectionContainer's innerHTML property to clear its content
-    // ensures that we are working witha clean slate
+    // ensures that we are working with a clean slate
     collectionContainer.innerHTML = '';
     
     //#3
-    // 
-    for(var i= 0; i<12; i++){
+    for(var i= 0; i<12; i++) {
         collectionContainer.innerHTML += collectionItemTemplate;
     }
 }
