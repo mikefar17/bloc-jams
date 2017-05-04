@@ -40,7 +40,7 @@ var createSongRow = function(songNumber, songName, songLength) {
       + '</tr>'
       ;
  
-     return template;
+     return $(template);
  };
 
 // Changes the headings currently set in original html and sets them to the new album that will be called
@@ -51,7 +51,12 @@ var setCurrentAlbum = function(album) {
      var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
      var albumImage = document.getElementsByClassName('album-cover-art')[0];
      var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
- 
+
+    var $albumTitle = $('album-view-title');
+    var $albumArtist = $('album-view-artist');
+    var $albumReleaseInfo = $('album-view-release-info');
+    var $albumImage = $('.album-cover-art');
+    var $albumSongList = $('album-view-song-list');
     // Connects the original html and equals it to the new album object
     // You took variables and you gave them new names with the same value 
     // You did this because the new name is needed
@@ -61,14 +66,22 @@ var setCurrentAlbum = function(album) {
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
      albumImage.setAttribute('src', album.albumArtUrl);
  
+    $albumTitle.text(album.title);
+    $albumArtist.text(album.artist);
+    $albumReleaseInfo.text(album.year + ' ' + album.label);
+    $albumImage.attr('src', album.albumArtUrl);
      // #3
     // Takes the table template and equals it to the innerHTML as a string
      albumSongList.innerHTML = '';
  
+    $albumSongList.empty();
      // #4
     // goes through each songObject within the albumObject and takes the new html string and equals is to function that creates songs 
      for (var i = 0; i < album.songs.length; i++) {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+         
+         var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
+         $albumSongList.append($newRow);
      }
  };
 // i need this explained
