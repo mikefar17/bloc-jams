@@ -1,4 +1,5 @@
-          
+
+
             var animatePoints = function() {
                 var revealPoint = function() {
                 // #7
