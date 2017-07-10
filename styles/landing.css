@@ -28,6 +28,8 @@ body .landing {
 
 .selling-points {
     position: relative;
+    background-color: black;
+    float: left;
 }
 
 .point {
