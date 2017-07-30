@@ -133,7 +133,10 @@
     cursor: pointer;
     -webkit-transition: all 100ms ease-in-out;
         -moz-transition: all 100ms ease-in-out;
-            transition: all 100ms ease-in-out;
+            transition: width 100ms ease-in-out,
+                        height 100ms ease-in-out,
+                        margin-top 100ms ease-in-out, 
+                        margin-left 100ms ease-in-out;
 }
 
 .seek-bar:hover .thumb {
@@ -143,7 +146,7 @@
     margin-left: -0.5rem;
 }
 
-.player-var .volume {
+.player-bar .volume {
     width: 25% ; 
     text-align: right;
 }
