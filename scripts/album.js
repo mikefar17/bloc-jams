@@ -37,7 +37,7 @@ var createSongRow = function(songNumber, songName, songLength) {
      // below this allows us to access the data held in the attribute using dom method when the mouse leaves the table row
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber +'</td>'
       + '  <td class="song-item-title">' + songName + '</td>'
-      + '  <td class="song-item-duration">' + songLength + '</td>'
+      + '  <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
       + '</tr>'
       ;
     
@@ -148,6 +148,8 @@ var updateSeekBarWhileSongPlays = function() {
              var $seekBar = $('.seek-control .seek-bar');
  
              updateSeekPercentage($seekBar, seekBarFillRatio);
+             setCurrentTimeInPlayerBar(this.getTime());
+             setTotalTimeInPlayerBar(this.getDuration());
          });
      }
  };
@@ -217,6 +219,7 @@ var updatePlayerBarSong = function() {
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
     
     $('.main-controls .play-pause').html(playerBarPauseButton);
+    
 };
 
 
@@ -287,6 +290,28 @@ var togglePlayFromPlayerBar = function() {
         }
         currentSoundFile.togglePlay();
     }
+};
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+    $('.total-time').text(filterTimeCode(totalTime));
+};
+
+var filterTimeCode = function(timeInSeconds){
+    var parsedSeconds = parseFloat(timeInSeconds);
+    
+    var getMinutes = Math.floor(parsedSeconds / 60);
+    
+    var getSeconds = Math.floor(parsedSeconds % 60);
+    
+    getSeconds = getSeconds < 10 ? "0" + getSeconds : getSeconds;
+    return getMinutes + ":" + getSeconds; 
+    
+    setTotalTimeInPlayerBar();
+};
+
+var setCurrentTimeInPlayerBar = function(currentTime) {
+    
+    $('.current-time').text(filterTimeCode(currentTime));
 };
 
 // Album button templates

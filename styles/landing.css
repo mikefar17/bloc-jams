@@ -1,10 +1,10 @@
-body .landing {
+body.landing {
     background-color: rgb(58,23,63);
 }
 
 .hero-content {
-    position:relative;
-    min-height:600px;
+    position: relative;
+    min-height: 600px;
     background-image: url(../assets/images/bloc_jams_background.jpg);
     background-repeat: no-repeat;
     background-position: center center;
@@ -13,8 +13,8 @@ body .landing {
 
 .hero-content .hero-title {
     position: absolute;
-    top:40%;
-    -webkit-transform:translaterY(-50%);
+    top: 40%;
+    -webkit-transform:translateY(-50%);
     -moz-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 100%;
@@ -28,9 +28,16 @@ body .landing {
 
 .selling-points {
     position: relative;
+    display: table;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .point {
+    display: table-cell;
+    width: 33%;
     position: relative;
     padding: 2rem;
     text-align: center;
